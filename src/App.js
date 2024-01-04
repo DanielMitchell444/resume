@@ -12,10 +12,15 @@ import { useReactToPrint } from 'react-to-print'
 import { useState, useRef } from 'react';
 import CV from './Components/SampleCV';
 import { v4 as uuidv4 } from 'uuid'
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import Login from './Components/Login';
 function App() {
   
   
- 
+ const pdfRef = useRef();
+
+ const [login, setLogin] = useState(false)
 
   const [values, setValues] = useState( {
     color1: "rgb(91, 205, 188)",
@@ -23,7 +28,8 @@ function App() {
     firstName: "",
     lastName: "",
     title: "",
-    image: "",
+    fileName: "",
+    fileSRC: "",
      skills: [
       {
       name: "",
@@ -53,6 +59,25 @@ function App() {
 const componentRef = useRef()
 const handlePrint = useReactToPrint({ content: () => componentRef.current,
                                       documentTitle: `${values.firstName}'s Resume`})
+
+
+
+const downloadPDF = () => {
+  const input = componentRef.current;
+  html2canvas(input).then((canvas) => {
+   const imgData = canvas.toDataURL('image/png')
+   const pdf = new jsPDF('p','mm','a4',true);
+   const pdfWidth = pdf.internal.pageSize.getWidth();
+   const pdfHeight = pdf.internal.pageSize.getHeight();
+   const imgWidth = canvas.width;
+   const imgHeight = canvas.height;
+   const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight)
+   const imgX = (pdfWidth - imgWidth * ratio) / 2;
+   const imgY = 0;
+   pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio)
+   pdf.save('Resume.pdf');
+  })
+}
 
 
 const [input, setInput] = useState([
@@ -90,13 +115,14 @@ const [skills, setSkills2] = useState ({
 })
 
 const handleFile = (event) => {
- const file = event.target.files[0]
+ setValues({
+  ...values,
+  fileName: event.target.files[0].name,
+  fileSRC: URL.createObjectURL(event.target.files[0])
+ })
 
- const formData = new FormData();
+ event.target.value = ""
 
- formData.append('file', file);
-
- setImage(URL.createObjectURL(file));
 }
 
 const addInput = () => {
@@ -130,8 +156,6 @@ const handleChange2 = (e) => {
 
 const loadSampleCV = (e) => {
   setValues(CV);
-  setStuff2(CV);
-  setImage(CV);
    e = ""
 }
 
@@ -226,11 +250,13 @@ const handleExperience = (e,id) =>{
 
 
   return (
+    
     <div className = {styles.App}>
      <div className= {styles.fields}>
      <Header 
      loadCV = {loadSampleCV}
      handlePrint = {handlePrint}
+     PDF = {downloadPDF}
      />
      <Gradient 
       values = {values}
@@ -284,6 +310,7 @@ const handleExperience = (e,id) =>{
      input = {input}
      image = {image}
      reference = {componentRef}
+     PDF = {pdfRef}
      
 
      />

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import Image from "../Image/Daniel.JPG";
+import Image from '../Image/Daniel.JPG'
 
 const CV = {
     color1: "rgb(91, 205, 188)",
@@ -7,10 +7,11 @@ const CV = {
     firstName: "Daniel",
     lastName: "Mitchell",
     title: "Front-End Developer",
-    image: Image,
+    fileName: "Daniel.JPG",
+    fileSRC: Image,
     description: "Versatile, personable professional with a Bachelor of Science in IT from Central Washington University prepared to apply web development, project management, and client relations skills to a career in web design. Proven track record of identifying and addressing all unique project requirements to produce aesthetic deliverables and maximize customer satisfaction. Sought for superb analytical skills, able to engineer user-friendly, fully functional websites and software through iterative improvements. Out-of-the-box thinker comfortable working in teams or independently to ensure solutions consistently meet or exceed project goals. Demonstrative experience using a variety of technology tools, including WordPress, JavaScript, and React to deliver innovative results. Exceptionally dedicated professional with keen interpersonal, communication, and organizational skills.",
      school: "Central Washington Univeristy",
-     degree: "Information Technology with a specilization in Web and Database Management.",
+     degree: "Information Technology",
      skills: [
         {
         name: "React",

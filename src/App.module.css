@@ -150,6 +150,29 @@
  font-size: 100%;
 }
 
+.image{
+    display: none;
+}
+
+.fileImage{
+    padding: 1rem;
+    background-color: #292929;
+    border-radius: 14px;
+    font-size: 100%;
+    cursor: pointer;
+    width: 100%;
+    transition: .3 ease-out;
+    word-break: break-word;
+}
+
+.subHeading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-family: Tektur,cursive;
+}
+
 input{
  width: 100%;
  padding: 1rem;
@@ -436,7 +459,6 @@ textarea{
     background-color: #000;
     color: #fff;
     padding: .4rem;
-    font-size: 13px;
     font-family: Lobster,cursive;
     border-radius: 14px;
     text-align: center;
@@ -473,6 +495,34 @@ svg{
  color: white;
 }
 
+.holder{
+   display: flex;
+   justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container2{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.container2 h1{
+    text-align: center;
+}
+
+.form{
+ border: 1px solid black;
+ background-color: white;
+ border-radius: 5px;
+ display: flex;
+ width: 400px;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+
 
 
 @media(min-width: 1400px){
@@ -486,10 +536,16 @@ svg{
     }
 }
 
+
+
 @media (max-width:630px) {
     .ResumePreview {
       transform:scale(.6);
       margin:-220px 0
+    }
+
+    .app{
+     flex-direction: row;
     }
   }
   @media (max-width:548px) {

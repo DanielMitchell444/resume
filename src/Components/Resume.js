@@ -14,7 +14,7 @@ const Resume = ({values, stuff2, experiences, input, addInput, image, reference}
          <span>{values.title}</span>
         </div>  
         <div className= {styles.imgContainer}>
-          <img src = {image} />
+          <img src = {values.fileSRC} alt = {values.fileName} />
         </div>
       </div>
       <p>{values.description}</p> 

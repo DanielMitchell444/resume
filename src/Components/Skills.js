@@ -1,22 +1,14 @@
 import React from "react";
 import styles from '../App.module.css';
 import { useState } from "react";
-import Input from "./Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faUserGear } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const Skills = ({addStuff, input, change, dynamic, addSkills2, handleSkills, values, deleteSkills, value}) => {
- const [inputs,setInput] = useState([{Skills: ""}])
- const [add, addSkill] = useState(false);
-
- const handleAddInputs = () => {
-  setInput([...inputs, {Skills: ""}])
- }
  return (
     <div className= {styles.skills}>
         <h2 className= {styles.heading}> 
-            <FontAwesomeIcon icon={faUserGear} size = "xl" className= {styles.icon} />
             Skills
         </h2>
         {

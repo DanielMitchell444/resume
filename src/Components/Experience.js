@@ -16,7 +16,7 @@ const Experience = ({setValue, values2, setValues, setValue2, values, deleteExpe
           values.experience.map((experience,index) =>(
             <div className= {styles.experienceRow} key={experience.id}>
               {values.experience.length > 1  &&
-                <div className="subHeading">
+                <div className= {styles.subHeading}>
                     <h3>Experience {index+1}</h3>
                     <FontAwesomeIcon icon={faTrashCan} size="xl" onClick = {() => deleteExperience(experience.id) } className="icon"/>
                 </div>

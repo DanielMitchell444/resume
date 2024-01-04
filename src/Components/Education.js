@@ -9,7 +9,6 @@ const Education = ({setValue, values, handleChange}) => {
  <div className= {styles.education}>
   <div className= {styles.heading}>
     <h2>
-    <FontAwesomeIcon icon = {faUserGraduate} size = "xl" />
     Education
     </h2>
   </div>

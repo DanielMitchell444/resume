@@ -30,13 +30,17 @@ const Personal = ({values, setValue, selectedImage, handleFile}) => {
  value = {values.title}
  name = "title"
  />
+ <label for = "file"
+ className= {styles.fileImage}
+ >{values.fileName}</label>
  <input 
  type = "file" 
  id = "file" 
  placeholder="Choose Picture" 
- accept="image/*"
+ accept="Image/*"
  onChange = {e => handleFile(e)}
  className= {styles.image} 
+ {...values.fileName ? values.fileName : "Choose Picture"}
  
  />
  <textarea 

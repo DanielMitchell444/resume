@@ -7,7 +7,6 @@ const Gradient = ({values, getColor1, getColor2}) => {
  <div className= {styles.gradient}>
   <div className= {styles.heading}>
    <h1>
-   <FontAwesomeIcon icon = {faPaintBrush} size = "xl" />
     Gradient
     </h1>
  <div className= {styles.gradientBtn}>

@@ -6,7 +6,6 @@ const Contacts = ({change, values}) => {
  return(
  <div className= {styles.contacts}>
   <div className= {styles.heading}>
-    <FontAwesomeIcon icon = {faAddressBook} size = "xl" className= {styles.icon} />
     <h2>Contacts</h2>
   </div>
   <input 
@@ -36,7 +35,7 @@ const Contacts = ({change, values}) => {
   <input type = "text" placeholder="Link to portfolio"
    onChange={change}
    maxLength={36} name = "link" 
-   values = {values.link}
+   value = {values.link}
    />
  </div>
  )
